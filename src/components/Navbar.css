@@ -10,10 +10,11 @@
 }
 
 .navbar.scrolled {
-  background-color: rgba(10, 10, 10, 0.95);
+  background-color: rgba(15, 15, 35, 0.95);
   backdrop-filter: blur(10px);
   padding: 1rem 0;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  border-bottom: 1px solid rgba(59, 130, 246, 0.1);
 }
 
 .nav-container {
@@ -28,7 +29,7 @@
 .logo a {
   font-size: 1.8rem;
   font-weight: 800;
-  background: var(--gradient-1);
+  background: var(--gradient-primary);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;

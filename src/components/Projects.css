@@ -1,11 +1,27 @@
 .projects {
   padding: 6rem 2rem;
-  background-color: var(--bg-primary);
+  background: var(--bg-secondary);
+  position: relative;
+  overflow: hidden;
+}
+
+.projects::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--gradient-mesh);
+  opacity: 0.3;
+  pointer-events: none;
 }
 
 .projects-container {
   max-width: 1200px;
   margin: 0 auto;
+  position: relative;
+  z-index: 1;
 }
 
 .projects-grid {
@@ -20,13 +36,13 @@
   background: var(--bg-card);
   border-radius: 16px;
   overflow: hidden;
-  border: 1px solid rgba(99, 102, 241, 0.1);
+  border: 1px solid rgba(59, 130, 246, 0.2);
   transition: all 0.3s ease;
 }
 
 .project-card:hover {
   border-color: var(--accent);
-  box-shadow: 0 10px 40px rgba(99, 102, 241, 0.3);
+  box-shadow: 0 10px 40px var(--accent-glow);
 }
 
 .project-gradient {
@@ -65,12 +81,13 @@
 
 .tech-tag {
   padding: 0.4rem 0.8rem;
-  background: rgba(99, 102, 241, 0.1);
-  border: 1px solid rgba(99, 102, 241, 0.3);
+  background: var(--gradient-overlay);
+  border: 1px solid rgba(59, 130, 246, 0.3);
   border-radius: 20px;
   font-size: 0.85rem;
   color: var(--accent);
   font-weight: 500;
+  backdrop-filter: blur(10px);
 }
 
 .project-links {

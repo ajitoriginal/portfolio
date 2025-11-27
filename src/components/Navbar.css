@@ -68,6 +68,29 @@
   width: 100%;
 }
 
+.cv-download-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1.5rem;
+  background: var(--accent);
+  color: white !important;
+  border-radius: 50px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px var(--accent-glow);
+}
+
+.cv-download-btn:hover {
+  background: var(--accent-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px var(--accent-glow);
+}
+
+.cv-download-btn::after {
+  display: none;
+}
+
 .hamburger {
   display: none;
   font-size: 1.5rem;

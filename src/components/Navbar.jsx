@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { FaBars, FaTimes } from 'react-icons/fa';
+import { FaBars, FaTimes, FaDownload } from 'react-icons/fa';
+import cvPdf from '../assets/SDE_CV_Ajit_Singh_V14.0.pdf';
 import './Navbar.css';
 
 const Navbar = () => {
@@ -56,6 +57,20 @@ const Navbar = () => {
               </a>
             </motion.li>
           ))}
+          <motion.li
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: menuItems.length * 0.1 }}
+          >
+            <a
+              href={cvPdf}
+              download="Ajit_Singh_CV.pdf"
+              className="cv-download-btn"
+              onClick={handleMenuClick}
+            >
+              <FaDownload /> CV
+            </a>
+          </motion.li>
         </ul>
 
         <div className="hamburger" onClick={() => setIsOpen(!isOpen)}>

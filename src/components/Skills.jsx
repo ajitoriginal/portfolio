@@ -14,7 +14,7 @@ import {
   SiMongodb,
   SiRedis,
 } from 'react-icons/si';
-import pythonLogo from '../Python-logo-notext.svg.png';
+import pythonLogo from '../assets/Python-logo-notext.svg.png';
 import './Skills.css';
 
 const Skills = () => {

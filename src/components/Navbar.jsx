@@ -23,6 +23,7 @@ const Navbar = () => {
     { name: 'About', href: '#about' },
     { name: 'Skills', href: '#skills' },
     { name: 'Projects', href: '#projects' },
+    { name: 'Posts', href: `${import.meta.env.BASE_URL}posts.html`, external: true },
     { name: 'Contact', href: '#contact' },
   ];
 
@@ -70,7 +71,11 @@ const Navbar = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1 }}
               >
-                <a href={item.href} onClick={handleMenuClick}>
+                <a
+                  href={item.href}
+                  onClick={handleMenuClick}
+                  {...(item.external && { target: '_blank', rel: 'noopener noreferrer' })}
+                >
                   {item.name}
                 </a>
               </motion.li>

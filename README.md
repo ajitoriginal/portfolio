@@ -8,6 +8,7 @@ A modern, responsive portfolio website built with React.js and deployed on GitHu
 - **Responsive**: Fully responsive design that works on all devices
 - **Animated**: Beautiful animations powered by Framer Motion
 - **Fast**: Built with Vite for optimal performance
+- **Password-Protected CV**: CV download requires a secret code for security
 - **Sections**:
   - Hero section with call-to-action
   - About me section
@@ -43,12 +44,21 @@ A modern, responsive portfolio website built with React.js and deployed on GitHu
    npm install
    ```
 
-3. Start the development server:
+3. Set up environment variables:
+   ```bash
+   cp .env.example .env
+   ```
+   Then edit `.env` and set your CV download secret code:
+   ```
+   VITE_CV_SECRET_CODE=your_secret_code_here
+   ```
+
+4. Start the development server:
    ```bash
    npm run dev
    ```
 
-4. Open your browser and visit `http://localhost:5173`
+5. Open your browser and visit `http://localhost:5173`
 
 ## Customization
 
@@ -89,10 +99,20 @@ base: '/your-repo-name/',
 
 The repository includes a GitHub Actions workflow that automatically deploys to GitHub Pages when you push to the main branch.
 
-1. Go to your repository Settings > Pages
-2. Under "Build and deployment", select "GitHub Actions" as the source
-3. Push your code to the main branch
-4. The site will be automatically built and deployed
+1. **Set up the secret code in GitHub**:
+   - Go to your repository Settings > Secrets and variables > Actions
+   - Click "New repository secret"
+   - Name: `VITE_CV_SECRET_CODE`
+   - Value: Your secret code (e.g., `ajit2024`)
+   - Click "Add secret"
+
+2. **Enable GitHub Pages**:
+   - Go to your repository Settings > Pages
+   - Under "Build and deployment", select "GitHub Actions" as the source
+
+3. **Deploy**:
+   - Push your code to the main branch
+   - The site will be automatically built and deployed
 
 ### Option 2: Manual Deployment
 

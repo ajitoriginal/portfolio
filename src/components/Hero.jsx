@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { FaGithub, FaLinkedin, FaEnvelope, FaArrowDown } from 'react-icons/fa';
+import { personalInfo, socialLinks } from '../data';
 import './Hero.css';
 
 const Hero = () => {
@@ -42,15 +43,15 @@ const Hero = () => {
         </motion.div>
 
         <motion.h1 variants={itemVariants}>
-          Hi, I'm <span className="gradient-text">Ajit Singh</span>
+          Hi, I'm <span className="gradient-text">{personalInfo.name}</span>
         </motion.h1>
 
         <motion.h2 variants={itemVariants} className="hero-subtitle">
-          Software Development Engineer (Full Stack)
+          {personalInfo.title}
         </motion.h2>
 
         <motion.p variants={itemVariants} className="hero-description">
-          Building scalable web applications with modern technologies. Passionate about creating efficient, user-friendly solutions.
+          {personalInfo.description}
         </motion.p>
 
         <motion.div className="hero-buttons" variants={itemVariants}>
@@ -74,7 +75,7 @@ const Hero = () => {
 
         <motion.div className="hero-socials" variants={itemVariants}>
           <motion.a
-            href="https://github.com/ajitoriginal"
+            href={socialLinks.github}
             target="_blank"
             rel="noopener noreferrer"
             whileHover={{ scale: 1.2, y: -5 }}
@@ -83,7 +84,7 @@ const Hero = () => {
             <FaGithub />
           </motion.a>
           <motion.a
-            href="https://www.linkedin.com/in/ajit-original/"
+            href={socialLinks.linkedin}
             target="_blank"
             rel="noopener noreferrer"
             whileHover={{ scale: 1.2, y: -5 }}
@@ -92,7 +93,7 @@ const Hero = () => {
             <FaLinkedin />
           </motion.a>
           <motion.a
-            href="mailto:ajitsinghoriginal@gmail.com"
+            href={socialLinks.email}
             whileHover={{ scale: 1.2, y: -5 }}
             whileTap={{ scale: 0.9 }}
           >

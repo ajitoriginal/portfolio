@@ -1,4 +1,5 @@
 import { FaHeart } from 'react-icons/fa';
+import { personalInfo } from '../data';
 import './Footer.css';
 
 const Footer = () => {
@@ -8,7 +9,7 @@ const Footer = () => {
     <footer className="footer">
       <div className="footer-content">
         <p>
-          Made with <FaHeart className="heart-icon" /> by Ajit Singh
+          Made with <FaHeart className="heart-icon" /> by {personalInfo.name}
         </p>
         <p className="copyright">
           &copy; {currentYear} All rights reserved.

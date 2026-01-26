@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { FaBars, FaTimes, FaDownload } from 'react-icons/fa';
 import CVModal from './CVModal';
+import { menuItems } from '../data';
 import './Navbar.css';
 
 const Navbar = () => {
@@ -16,15 +17,6 @@ const Navbar = () => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-
-  const menuItems = [
-    { name: 'Home', href: '#home' },
-    { name: 'About', href: '#about' },
-    { name: 'Skills', href: '#skills' },
-    { name: 'Projects', href: '#projects' },
-    { name: 'Posts', href: `${import.meta.env.BASE_URL}posts.html`, external: true },
-    { name: 'Contact', href: '#contact' },
-  ];
 
   const handleMenuClick = () => {
     setIsOpen(false);

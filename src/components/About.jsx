@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
+import { stats, aboutBio } from '../data';
 import './About.css';
 
 const About = () => {
@@ -26,25 +27,6 @@ const About = () => {
     },
   };
 
-  const stats = [
-    {
-      value: '4+',
-      label: 'Years Experience',
-    },
-    {
-      value: '10+',
-      label: 'Projects Completed',
-    },
-    {
-      value: '15+',
-      label: 'Technologies',
-    },
-    {
-      value: '3+',
-      label: 'Happy Companies',
-    },
-  ];
-
   return (
     <section className="about" id="about" ref={ref}>
       <motion.div
@@ -59,18 +41,9 @@ const About = () => {
 
         <div className="about-content">
           <motion.div className="about-text" variants={itemVariants}>
-            <p>
-              Results-driven Software Engineer with <strong>4+ years of experience</strong> in
-              building and optimizing scalable full-stack web applications. Proven
-              expertise in integrating real-time communication tools, automating
-              financial workflows, and deploying robust cloud-based solutions.
-            </p>
-            <p>
-              Adept at designing RESTful APIs, optimizing MongoDB queries, and
-              delivering high-performance user interfaces. Collaborative team
-              player with strong communication and leadership skills, committed
-              to agile practices and continuous improvement.
-            </p>
+            {aboutBio.map((paragraph, index) => (
+              <p key={index} dangerouslySetInnerHTML={{ __html: paragraph }} />
+            ))}
           </motion.div>
 
           <div className="about-stats">

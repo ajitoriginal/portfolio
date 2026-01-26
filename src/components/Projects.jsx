@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
+import { projects } from '../data';
 import './Projects.css';
 
 const Projects = () => {
@@ -26,27 +27,6 @@ const Projects = () => {
       transition: { duration: 0.5 },
     },
   };
-
-  const projects = [
-    {
-      title: 'Tech Media Platform',
-      description:
-        'A professional networking platform for developers featuring public profiles showcasing skills and GitHub projects, social features for sharing insights via posts, likes, and comments, and real-time community engagement built with the MERN stack.',
-      technologies: ['Node.js', 'React', 'Redux', 'MongoDB'],
-      github: 'https://github.com/ajitoriginal/TechMedia',
-      live: 'https://tech-media-platform-ui.onrender.com/',
-      gradient: 'var(--gradient-1)',
-    },
-    {
-      title: 'ERP',
-      description:
-        'An internal Enterprise Resource Planning system integrating inventory management, employee tracking, financial operations, and cross-departmental resource allocation. Features real-time analytics, automated workflows, and role-based access control for streamlined business operations.',
-      technologies: ['React', 'Node.js', 'MongoDB', 'AWS'],
-      github: 'https://github.com',
-      live: 'https://erp.decorpot.com/',
-      gradient: 'var(--gradient-2)',
-    }
-  ];
 
   return (
     <section className="projects" id="projects" ref={ref}>

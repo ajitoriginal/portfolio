@@ -1,8 +1,21 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef, useState } from 'react';
-import { FaEnvelope, FaPhone, FaMapMarkerAlt, FaLinkedin, FaGithub, FaTwitter } from 'react-icons/fa';
+import { FaEnvelope, FaMapMarkerAlt, FaLinkedin, FaGithub } from 'react-icons/fa';
+import { contactInfo as contactInfoData, socialLinks } from '../data';
 import './Contact.css';
+
+// Icon mapping for contact info
+const contactIconMap = {
+  email: <FaEnvelope />,
+  location: <FaMapMarkerAlt />,
+};
+
+// Icon mapping for social links
+const socialIconMap = {
+  linkedin: <FaLinkedin />,
+  github: <FaGithub />,
+};
 
 const Contact = () => {
   const ref = useRef(null);
@@ -47,24 +60,16 @@ const Contact = () => {
     setFormData({ name: '', email: '', message: '' });
   };
 
-  const contactInfo = [
-    {
-      icon: <FaEnvelope />,
-      title: 'Email',
-      value: 'ajitsinghoriginal@gmail.com',
-      link: 'mailto:ajitsinghoriginal@gmail.com',
-    },
-    {
-      icon: <FaMapMarkerAlt />,
-      title: 'Location',
-      value: 'New Delhi, IN',
-      link: null,
-    },
-  ];
+  // Map contact info with icons
+  const contactInfo = contactInfoData.map(info => ({
+    ...info,
+    icon: contactIconMap[info.type],
+  }));
 
-  const socialLinks = [
-    { icon: <FaLinkedin />, url: 'https://www.linkedin.com/in/ajit-original/', label: 'LinkedIn' },
-    { icon: <FaGithub />, url: 'https://github.com/ajitoriginal', label: 'GitHub' },
+  // Map social links with icons
+  const socialLinksWithIcons = [
+    { icon: socialIconMap.linkedin, url: socialLinks.linkedin, label: 'LinkedIn' },
+    { icon: socialIconMap.github, url: socialLinks.github, label: 'GitHub' },
   ];
 
   return (
@@ -106,7 +111,7 @@ const Contact = () => {
             <div className="social-links">
               <h4>Follow Me</h4>
               <div className="social-icons">
-                {socialLinks.map((social, index) => (
+                {socialLinksWithIcons.map((social, index) => (
                   <motion.a
                     key={index}
                     href={social.url}

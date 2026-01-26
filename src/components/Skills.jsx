@@ -15,7 +15,6 @@ import {
   SiJavascript,
   SiTypescript,
   SiMongodb,
-  SiRedis,
   SiJira,
   SiCplusplus,
   SiMysql,
@@ -23,7 +22,29 @@ import {
   SiSocketdotio,
 } from 'react-icons/si';
 import pythonLogo from '../assets/Python-logo-notext.svg.png';
+import { skills as skillsData } from '../data';
 import './Skills.css';
+
+// Icon mapping for skills
+const iconMap = {
+  'Node.js': <FaNode />,
+  'Python': <img src={pythonLogo} alt="Python" style={{ width: '80%', height: '90%', objectFit: 'contain' }} />,
+  'MongoDB': <SiMongodb />,
+  'React': <FaReact />,
+  'JavaScript': <SiJavascript />,
+  'TypeScript': <SiTypescript />,
+  'HTML': <FaHtml5 />,
+  'CSS': <FaCss3Alt />,
+  'Redux': <SiRedux />,
+  'MySQL': <SiMysql />,
+  'C++': <SiCplusplus />,
+  'WebSockets': <SiSocketdotio />,
+  'Git': <FaGitAlt />,
+  'Docker': <FaDocker />,
+  'Linux': <FaLinux />,
+  'JIRA': <SiJira />,
+  'AWS': <FaAws />,
+};
 
 const Skills = () => {
   const ref = useRef(null);
@@ -48,25 +69,11 @@ const Skills = () => {
     },
   };
 
-  const skills = [
-    { name: 'Node.js', icon: <FaNode />, color: '#339933' },
-    { name: 'Python', icon: <img src={pythonLogo} alt="Python" style={{ width: '80%', height: '90%', objectFit: 'contain' }} />, isImage: true },
-    { name: 'MongoDB', icon: <SiMongodb />, color: '#47A248' },
-    { name: 'React', icon: <FaReact />, color: '#61DAFB' },
-    { name: 'JavaScript', icon: <SiJavascript />, color: '#F7DF1E' },
-    { name: 'TypeScript', icon: <SiTypescript />, color: '#3178C6' },
-    { name: 'HTML', icon: <FaHtml5 />, color: '#E34F26' },
-    { name: 'CSS', icon: <FaCss3Alt />, color: '#1572B6' },
-    { name: 'Redux', icon: <SiRedux />, color: '#764ABC' },
-    { name: 'MySQL', icon: <SiMysql />, color: '#4479A1' },
-    { name: 'C++', icon: <SiCplusplus />, color: '#00599C' },
-    { name: 'WebSockets', icon: <SiSocketdotio />, color: '#010101' },
-    { name: 'Git', icon: <FaGitAlt />, color: '#F05032' },
-    { name: 'Docker', icon: <FaDocker />, color: '#2496ED' },
-    { name: 'Linux', icon: <FaLinux />, color: '#FCC624' },
-    { name: 'JIRA', icon: <SiJira />, color: '#0052CC' },
-    { name: 'AWS', icon: <FaAws />, color: '#FF9900' },
-  ];
+  // Combine data with icons
+  const skills = skillsData.map(skill => ({
+    ...skill,
+    icon: iconMap[skill.name],
+  }));
 
   return (
     <section className="skills" id="skills" ref={ref}>
@@ -86,8 +93,11 @@ const Skills = () => {
 
         <div className="skills-grid">
           {skills.map((skill, index) => (
-            <motion.div
+            <motion.a
               key={index}
+              href={skill.url}
+              target="_blank"
+              rel="noopener noreferrer"
               className="skill-card"
               variants={itemVariants}
               whileHover={{
@@ -103,7 +113,7 @@ const Skills = () => {
                 {skill.icon}
               </div>
               <span className="skill-name">{skill.name}</span>
-            </motion.div>
+            </motion.a>
           ))}
         </div>
       </motion.div>

@@ -23,6 +23,11 @@
   margin-top: 4rem;
 }
 
+a.skill-card {
+  text-decoration: none;
+  color: inherit;
+}
+
 .skill-card {
   background: var(--bg-card);
   padding: 2rem;

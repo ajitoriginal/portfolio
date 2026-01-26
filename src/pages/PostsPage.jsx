@@ -1,81 +1,13 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
-import { FaCalendar, FaClock, FaArrowRight, FaTag, FaHome, FaArrowLeft } from 'react-icons/fa';
+import { FaCalendar, FaClock, FaArrowRight, FaTag, FaArrowLeft } from 'react-icons/fa';
+import { posts, personalInfo } from '../data';
 import './PostsPage.css';
 
 const PostsPage = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
-
-  const posts = [
-    {
-      id: 1,
-      title: 'Building Scalable Microservices with Node.js',
-      excerpt: 'Learn how to design and implement microservices architecture using Node.js, Docker, and Kubernetes for production-ready applications.',
-      date: 'Dec 15, 2024',
-      readTime: '8 min read',
-      category: 'Backend',
-      tags: ['Node.js', 'Microservices', 'Docker'],
-      gradient: 'var(--gradient-primary)',
-      featured: true,
-    },
-    {
-      id: 2,
-      title: 'React Performance Optimization Techniques',
-      excerpt: 'Discover advanced techniques to optimize React applications including memoization, code splitting, and lazy loading strategies.',
-      date: 'Dec 10, 2024',
-      readTime: '6 min read',
-      category: 'Frontend',
-      tags: ['React', 'Performance', 'Optimization'],
-      gradient: 'var(--gradient-secondary)',
-      featured: true,
-    },
-    {
-      id: 3,
-      title: 'Complete Guide to REST API Design',
-      excerpt: 'Best practices for designing RESTful APIs that are scalable, maintainable, and developer-friendly with real-world examples.',
-      date: 'Dec 5, 2024',
-      readTime: '10 min read',
-      category: 'API Design',
-      tags: ['REST', 'API', 'Backend'],
-      gradient: 'var(--gradient-accent)',
-      featured: false,
-    },
-    {
-      id: 4,
-      title: 'MongoDB Schema Design Patterns',
-      excerpt: 'Explore common schema design patterns in MongoDB and learn when to embed vs reference documents for optimal performance.',
-      date: 'Nov 28, 2024',
-      readTime: '7 min read',
-      category: 'Database',
-      tags: ['MongoDB', 'NoSQL', 'Database'],
-      gradient: 'var(--gradient-success)',
-      featured: false,
-    },
-    {
-      id: 5,
-      title: 'WebSocket vs Server-Sent Events',
-      excerpt: 'A deep dive into real-time communication protocols, comparing WebSockets and SSE with use cases and implementation examples.',
-      date: 'Nov 20, 2024',
-      readTime: '5 min read',
-      category: 'Real-time',
-      tags: ['WebSocket', 'SSE', 'Real-time'],
-      gradient: 'var(--gradient-primary)',
-      featured: false,
-    },
-    {
-      id: 6,
-      title: 'Authentication Strategies in Modern Web Apps',
-      excerpt: 'Comprehensive guide to implementing JWT, OAuth 2.0, and session-based authentication with security best practices.',
-      date: 'Nov 15, 2024',
-      readTime: '9 min read',
-      category: 'Security',
-      tags: ['Authentication', 'JWT', 'Security'],
-      gradient: 'var(--gradient-secondary)',
-      featured: false,
-    },
-  ];
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -259,8 +191,8 @@ const PostsPage = () => {
       {/* Footer */}
       <footer className="posts-footer">
         <div className="footer-content">
-          <p>Made with ❤️ by Ajit Singh</p>
-          <p className="copyright">© 2024 All rights reserved.</p>
+          <p>Made with ❤️ by {personalInfo.name}</p>
+          <p className="copyright">© {new Date().getFullYear()} All rights reserved.</p>
         </div>
       </footer>
     </div>

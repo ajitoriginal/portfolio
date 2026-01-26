@@ -34,6 +34,7 @@ jobs:
         run: npm run build
         env:
           VITE_CV_SECRET_CODE: ${{ secrets.VITE_CV_SECRET_CODE }}
+          VITE_CV_DRIVE_LINK: ${{ secrets.VITE_CV_DRIVE_LINK }}
 
       - name: Setup Pages
         uses: actions/configure-pages@v5

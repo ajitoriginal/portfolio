@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { FaBars, FaTimes, FaDownload } from 'react-icons/fa';
-import cvPdf from '../assets/SDE_CV_Ajit_Singh_V14.0.pdf';
 import CVModal from './CVModal';
 import './Navbar.css';
 
@@ -38,12 +37,12 @@ const Navbar = () => {
   };
 
   const handleDownload = () => {
-    const link = document.createElement('a');
-    link.href = cvPdf;
-    link.download = 'Ajit_Singh_CV.pdf';
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
+    const driveLink = import.meta.env.VITE_CV_DRIVE_LINK;
+    if (driveLink) {
+      window.open(driveLink, '_blank');
+    } else {
+      alert('CV link not configured. Please contact Ajit.');
+    }
   };
 
   return (

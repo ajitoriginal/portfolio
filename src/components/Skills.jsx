@@ -76,15 +76,15 @@ const Skills = () => {
   }));
 
   return (
-    <section className="skills" id="skills" ref={ref}>
+    <section className="skills section-padding" id="skills" ref={ref}>
       <motion.div
-        className="skills-container"
+        className="skills-container max-w-7xl"
         variants={containerVariants}
         initial="hidden"
         animate={isInView ? 'visible' : 'hidden'}
       >
-        <motion.div variants={itemVariants} className="section-header">
-          <h2>Skills & Technologies</h2>
+        <motion.div variants={itemVariants} className="section-header flex-center" style={{ flexDirection: 'column' }}>
+          <h2 className="heading-gradient">Skills & Technologies</h2>
           <div className="section-underline"></div>
           <p className="section-description">
             Technologies I work with to bring ideas to life
@@ -98,14 +98,15 @@ const Skills = () => {
               href={skill.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="skill-card"
+              className="skill-card glass-panel"
               variants={itemVariants}
               whileHover={{
-                scale: 1.1,
-                rotate: [0, -5, 5, 0],
+                scale: 1.05,
+                y: -5,
                 transition: { duration: 0.3 },
               }}
             >
+              <div className="card-glow"></div>
               <div
                 className="skill-icon"
                 style={skill.color ? { color: skill.color } : {}}

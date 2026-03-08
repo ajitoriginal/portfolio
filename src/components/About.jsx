@@ -19,24 +19,25 @@ const About = () => {
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
+    hidden: { opacity: 0, y: 30 },
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.5 },
+      transition: { duration: 0.6, ease: "easeOut" },
     },
   };
 
   return (
-    <section className="about" id="about" ref={ref}>
+    <section className="about section-padding" id="about" ref={ref}>
       <motion.div
-        className="about-container"
+        className="about-container max-w-7xl"
         variants={containerVariants}
         initial="hidden"
         animate={isInView ? 'visible' : 'hidden'}
       >
-        <motion.div variants={itemVariants} className="section-header">
-          <h2>About Me</h2>
+        <motion.div variants={itemVariants} className="section-header flex-center" style={{ flexDirection: 'column' }}>
+          <h2 className="heading-gradient">About Me</h2>
+          <div className="section-underline"></div>
         </motion.div>
 
         <div className="about-content">
@@ -50,11 +51,12 @@ const About = () => {
             {stats.map((stat, index) => (
               <motion.div
                 key={index}
-                className="stat-card"
+                className="stat-card glass-panel"
                 variants={itemVariants}
-                whileHover={{ scale: 1.05, y: -5 }}
+                whileHover={{ scale: 1.03, y: -5 }}
               >
-                <h3 className="stat-value">{stat.value}</h3>
+                <div className="stat-glow"></div>
+                <h3 className="stat-value text-gradient">{stat.value}</h3>
                 <p className="stat-label">{stat.label}</p>
               </motion.div>
             ))}

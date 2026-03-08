@@ -1,23 +1,12 @@
 .footer {
-  padding: 2rem;
-  background: var(--bg-secondary);
-  border-top: 1px solid rgba(59, 130, 246, 0.2);
+  padding: 3rem 2rem;
+  background: var(--bg-base);
+  border-top: 1px solid var(--border-subtle);
   position: relative;
 }
 
-.footer::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 2px;
-  background: var(--gradient-primary);
-  opacity: 0.5;
-}
-
 .footer-content {
-  max-width: 1200px;
+  max-width: 80rem;
   margin: 0 auto;
   text-align: center;
   color: var(--text-secondary);
@@ -33,29 +22,39 @@
 }
 
 .heart-icon {
-  color: #e74c3c;
-  animation: heartbeat 1.5s ease-in-out infinite;
+  color: #ef4444;
+  animation: heartbeat 2s ease-in-out infinite;
 }
 
 @keyframes heartbeat {
   0%, 100% {
     transform: scale(1);
   }
-  50% {
-    transform: scale(1.1);
+  15% {
+    transform: scale(1.25);
+  }
+  30% {
+    transform: scale(1);
+  }
+  45% {
+    transform: scale(1.25);
+  }
+  60% {
+    transform: scale(1);
   }
 }
 
 .copyright {
   font-size: 0.85rem;
+  color: var(--text-tertiary);
 }
 
 @media (max-width: 768px) {
   .footer {
-    padding: 1.5rem 1rem;
+    padding: 2rem 1rem;
   }
 
   .footer-content p {
-    font-size: 0.85rem;
+    font-size: 0.9rem;
   }
 }

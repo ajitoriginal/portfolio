@@ -1,111 +1,138 @@
 .skills {
-  padding: 6rem 2rem;
-  background: var(--bg-primary);
-  position: relative;
-}
-
-.skills-container {
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.section-description {
-  text-align: center;
-  color: var(--text-secondary);
-  font-size: 1.1rem;
-  margin-top: 1rem;
-}
-
-.skills-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 2rem;
-  margin-top: 4rem;
-}
-
-a.skill-card {
-  text-decoration: none;
-  color: inherit;
-}
-
-.skill-card {
-  background: var(--bg-card);
-  padding: 2rem;
-  border-radius: 16px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 1rem;
-  border: 1px solid rgba(59, 130, 246, 0.2);
-  transition: all 0.3s ease;
-  cursor: pointer;
+  background: var(--bg-base);
   position: relative;
   overflow: hidden;
 }
 
-.skill-card::before {
+.skills::before {
   content: '';
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background: var(--gradient-overlay);
+  background: radial-gradient(circle at 10% 90%, rgba(99, 102, 241, 0.05) 0%, transparent 50%),
+              radial-gradient(circle at 90% 10%, rgba(236, 72, 153, 0.05) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.skills-container {
+  position: relative;
+  z-index: 10;
+}
+
+.section-header {
+  margin-bottom: 5rem;
+  text-align: center;
+}
+
+.section-header h2 {
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  font-weight: 800;
+  margin-bottom: 0;
+  line-height: 1.2;
+}
+
+.section-description {
+  color: var(--text-secondary);
+  font-size: 1.15rem;
+  margin-top: 1.5rem;
+  max-width: 600px;
+  text-align: center;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+a.skill-card {
+  text-decoration: none;
+  color: inherit;
+  outline: none;
+}
+
+.skill-card {
+  padding: 2rem 1.5rem;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  transition: all var(--transition-normal);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  /* Add glass-panel class in JSX to get the exact background/border/blur */
+}
+
+.skill-card .card-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  background: var(--gradient-main);
+  filter: blur(40px);
+  transform: translate(-50%, -50%);
   opacity: 0;
-  transition: opacity 0.3s ease;
+  transition: opacity var(--transition-normal);
+  z-index: 0;
+  pointer-events: none;
 }
 
 .skill-card:hover {
-  border-color: var(--accent);
-  box-shadow: 0 8px 30px var(--accent-glow);
-  transform: translateY(-5px);
+  border-color: rgba(168, 85, 247, 0.3);
+  box-shadow: 0 15px 35px -5px rgba(0, 0, 0, 0.5), 0 0 20px rgba(168, 85, 247, 0.2);
 }
 
-.skill-card:hover::before {
-  opacity: 1;
+.skill-card:hover .card-glow {
+  opacity: 0.15;
 }
 
 .skill-icon {
-  font-size: 4rem;
-  transition: transform 0.3s ease;
+  font-size: 3.5rem;
+  transition: transform var(--transition-fast);
   position: relative;
-  z-index: 1;
+  z-index: 10;
+  color: var(--text-primary);
 }
 
 .skill-card:hover .skill-icon {
-  transform: scale(1.1);
+  transform: scale(1.15);
 }
 
 .skill-name {
-  font-size: 1rem;
+  font-size: 0.95rem;
   font-weight: 600;
-  color: var(--text-primary);
+  color: var(--text-secondary);
   text-align: center;
   position: relative;
-  z-index: 1;
+  z-index: 10;
+  letter-spacing: 0.5px;
+  transition: color var(--transition-fast);
+}
+
+.skill-card:hover .skill-name {
+  color: var(--text-primary);
 }
 
 @media (max-width: 768px) {
-  .skills {
-    padding: 4rem 1rem;
-  }
-
   .skills-grid {
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+    gap: 1.25rem;
   }
 
   .skill-card {
-    padding: 1.5rem;
+    padding: 1.5rem 1rem;
+    gap: 1rem;
   }
 
   .skill-icon {
     font-size: 3rem;
-  }
-
-  .skill-name {
-    font-size: 0.9rem;
   }
 }
 

@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { FaGithub, FaLinkedin, FaEnvelope, FaArrowDown } from 'react-icons/fa';
 import { personalInfo, socialLinks } from '../data';
+import profilePic from '../assets/profile pic.jpg';
 import './Hero.css';
 
 const Hero = () => {
@@ -38,8 +39,9 @@ const Hero = () => {
         initial="hidden"
         animate="visible"
       >
-        <motion.div className="hero-tag" variants={itemVariants}>
-          <span>👋 Welcome to my portfolio</span>
+        <motion.div className="hero-image-container" variants={itemVariants}>
+          <div className="hero-image-glow"></div>
+          <img src={profilePic} alt={personalInfo.name} className="hero-profile-pic" />
         </motion.div>
 
         <motion.h1 variants={itemVariants}>

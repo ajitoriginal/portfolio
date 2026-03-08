@@ -73,15 +73,15 @@ const Contact = () => {
   ];
 
   return (
-    <section className="contact" id="contact" ref={ref}>
+    <section className="contact section-padding" id="contact" ref={ref}>
       <motion.div
-        className="contact-container"
+        className="contact-container max-w-7xl"
         variants={containerVariants}
         initial="hidden"
         animate={isInView ? 'visible' : 'hidden'}
       >
-        <motion.div variants={itemVariants} className="section-header">
-          <h2>Get In Touch</h2>
+        <motion.div variants={itemVariants} className="section-header flex-center" style={{ flexDirection: 'column' }}>
+          <h2 className="heading-gradient">Get In Touch</h2>
           <div className="section-underline"></div>
           <p className="section-description">
             I'm always open to discussing new projects and opportunities

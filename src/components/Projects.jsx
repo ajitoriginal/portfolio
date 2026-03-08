@@ -29,15 +29,15 @@ const Projects = () => {
   };
 
   return (
-    <section className="projects" id="projects" ref={ref}>
+    <section className="projects section-padding" id="projects" ref={ref}>
       <motion.div
-        className="projects-container"
+        className="projects-container max-w-7xl"
         variants={containerVariants}
         initial="hidden"
         animate={isInView ? 'visible' : 'hidden'}
       >
-        <motion.div variants={itemVariants} className="section-header">
-          <h2>Featured Projects</h2>
+        <motion.div variants={itemVariants} className="section-header flex-center" style={{ flexDirection: 'column' }}>
+          <h2 className="heading-gradient">Featured Projects</h2>
           <div className="section-underline"></div>
           <p className="section-description">
             Some of my recent work and personal projects
